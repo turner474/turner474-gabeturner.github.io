@@ -3,262 +3,410 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ember — Cedaris Technologies LLC</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <title>Gabe Turner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --bg: #ffffff;
-      --text: #0a0a0a;
-      --muted: #666;
-      --blue: #0071e3;
-      --blue-light: #cce3ff;
-      --radius: 16px;
-      --shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+      --bg: #fafaf9;
+      --text: #111;
+      --muted: #777;
+      --border: #e4e4e4;
+      --max: 700px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-    header { padding: 35px 20px 10px; text-align: center; background: #ffffff; }
-    header h1 { font-size: clamp(2.3rem, 5vw, 3.2rem); font-weight: 700; letter-spacing: -0.02em; color: #000; margin-bottom: 6px; }
-    header p.tagline { color: var(--muted); font-size: 1.05rem; margin-top: 2px; margin-bottom: 8px; max-width: 600px; margin-left: auto; margin-right: auto; }
-    header p.legal-note { margin-top: 4px; font-size: 0.7rem; color: #999; }
-
-    section { max-width: 950px; margin: 70px auto; padding: 0 24px; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    section.visible { opacity: 1; transform: translateY(0); }
-
-    h2 { font-size: 1.8rem; font-weight: 600; margin-bottom: 12px; color: #000; }
-    p { font-size: 1.05rem; color: #222; margin-bottom: 18px; line-height: 1.8; }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-      gap: 20px;
-      justify-content: center;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .media-box {
-      aspect-ratio: 16 / 9;
-      position: relative;
-      overflow: hidden;
-      border-radius: 16px;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.12);
-      background: #000;
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+    }
+
+    .nav-name {
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 26px;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── Sections ── */
+    section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 100px 28px;
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 44px;
+    }
+
+    /* ── Landing ── */
+    #home {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: center;
+      padding-top: 52px;
     }
 
-    iframe, img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border: 0;
+    .home-name {
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+      margin-bottom: 22px;
     }
 
-    .caption {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.55);
-      color: #fff;
-      font-size: 0.95rem;
-      padding: 8px 0;
-      backdrop-filter: blur(4px);
-      font-weight: 500;
-      letter-spacing: 0.3px;
+    .home-tagline {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 440px;
+      line-height: 1.65;
     }
 
-    .carousel {
+    /* ── Projects ── */
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .project-carousel {
+      aspect-ratio: 16 / 9;
       position: relative;
-      width: 100%;
-      height: 100%;
+      background: #111;
+      overflow: hidden;
     }
-    .carousel img {
+
+    .project-carousel img {
       position: absolute;
       width: 100%;
       height: 100%;
       object-fit: cover;
       opacity: 0;
-      transition: opacity 1s ease;
-    }
-    .carousel img.active { opacity: 1; }
-
-    @media (max-width: 768px) {
-      .video-grid { grid-template-columns: 1fr; }
+      transition: opacity 1.2s ease;
     }
 
-    .btn {
-      background: #000;
-      color: #fff;
-      border: none;
-      border-radius: 999px;
-      padding: 14px 38px;
-      font-size: 1.05rem;
+    .project-carousel img.active { opacity: 1; }
+
+    .project-body {
+      padding: 28px 30px 32px;
+    }
+
+    .project-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .project-title {
+      font-size: 1.55rem;
       font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
-      margin-top: 10px;
-    }
-    .btn:hover {
-      transform: translateY(-3px);
-      background: #333;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      letter-spacing: -0.025em;
+      margin-bottom: 14px;
+      line-height: 1.2;
     }
 
+    .project-desc {
+      font-size: 0.96rem;
+      color: #333;
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 26px;
+    }
+
+    .tag {
+      font-size: 0.76rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 3px 9px;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .link-btn {
+      font-size: 0.86rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid #c8c8c8;
+      border-radius: 4px;
+      padding: 8px 18px;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .link-btn:hover {
+      background: #efefef;
+      border-color: #b8b8b8;
+    }
+
+    .link-btn.primary {
+      background: var(--text);
+      color: #fff;
+      border-color: var(--text);
+    }
+
+    .link-btn.primary:hover {
+      background: #2a2a2a;
+      border-color: #2a2a2a;
+    }
+
+    /* ── Placeholder card ── */
+    .project-placeholder {
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      padding: 36px 30px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .placeholder-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d0d0d0;
+      flex-shrink: 0;
+    }
+
+    .placeholder-text {
+      font-size: 0.93rem;
+      color: var(--muted);
+    }
+
+    /* ── Personal ── */
+    #personal p {
+      font-size: 1.02rem;
+      color: #2a2a2a;
+      line-height: 1.8;
+      max-width: 560px;
+    }
+
+    #personal p + p { margin-top: 20px; }
+
+    /* ── Contact ── */
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .contact-list a {
+      font-size: 0.97rem;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      display: inline;
+      transition: border-color 0.15s;
+    }
+
+    .contact-list a:hover { border-bottom-color: var(--text); }
+
+    /* ── Footer ── */
     footer {
-      text-align: center;
-      padding: 50px 20px;
-      background: #f8f8f8;
-      color: #777;
-      border-top: 1px solid #eee;
-      font-size: 0.9rem;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 32px 28px 60px;
+      font-size: 0.82rem;
+      color: #bbb;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 560px) {
+      nav { padding: 0 18px; }
+      .nav-links { gap: 18px; }
+      section { padding: 72px 18px; }
+      #home { padding-top: 52px; }
+      .project-body { padding: 20px 20px 24px; }
+      .project-placeholder { padding: 28px 20px; }
     }
   </style>
 </head>
-
 <body>
-<header>
-  <h1>Ember</h1>
-  <p class="tagline">A smarter, faster way to detect fire before it spreads.</p>
-  <p class="legal-note">“Ember” is a working name used descriptively; no trademark claim is asserted.</p>
-</header>
 
-<section id="demo-video">
-  <h2>Demo Media</h2>
-  <p>Videos of me prototyping!</p>
+<nav>
+  <a href="#home" class="nav-name">Gabe Turner</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#personal">Personal</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <div class="video-grid">
-    <!-- New Drive Video -->
-    <div class="media-box">
-      <iframe src="https://drive.google.com/file/d/1Zh_6enGdujeA5vIs5necY5Fufe6411DX/preview" allow="autoplay" allowfullscreen></iframe>
-      <div class="caption">Safe Flame Classification V2</div>
+<!-- ── Landing ── -->
+<section id="home">
+  <h1 class="home-name">Gabe Turner</h1>
+  <p class="home-tagline">Junior at Purdue studying AI — interested in how intelligence works in the real world.</p>
+</section>
+
+<hr class="divider" />
+
+<!-- ── Projects ── -->
+<section id="projects">
+  <p class="section-label">Projects</p>
+
+  <div class="project-card">
+    <div class="project-carousel">
+      <img src="image1.png" class="active" alt="Ember — flame detection training data" />
+      <img src="image2.png" alt="Ember — training process" />
+      <img src="image3.png" alt="Ember — training process" />
+      <img src="image4.png" alt="Ember — training process" />
+      <img src="image5.png" alt="Ember — training process" />
+      <img src="image6.png" alt="Ember — training process" />
     </div>
-
-    <!-- Rotating Image Carousel -->
-    <div class="media-box">
-      <div class="carousel">
-        <img src="image1.png" class="active" alt="Flame Dataset 1">
-        <img src="image2.png" alt="Flame Dataset 2">
-        <img src="image3.png" alt="Flame Dataset 3">
-        <img src="image4.png" alt="Flame Dataset 4">
-        <img src="image5.png" alt="Flame Dataset 4">
-        <img src="image6.png" alt="Flame Dataset 4">
-
+    <div class="project-body">
+      <p class="project-meta">2025 · Cedaris Technologies LLC</p>
+      <h2 class="project-title">Ember</h2>
+      <p class="project-desc">
+        Early fire detection using a custom YOLOv8 model trained to distinguish live flames from safe light
+        sources — candles, stovetops, sunlight. Paired with a UV sensor and wake-interrupt logic so the device
+        stays dormant until UV activity crosses a threshold, then wakes to classify and confirm before alerting.
+        Built on Raspberry Pi; prototyping toward a dedicated embedded board with battery support.
+        Provisional patent filed October 2025.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Computer Vision</span>
+        <span class="tag">YOLOv8</span>
+        <span class="tag">Raspberry Pi</span>
+        <span class="tag">UV Sensing</span>
+        <span class="tag">Embedded Systems</span>
+        <span class="tag">Provisional Patent</span>
       </div>
-      <div class="caption">Training Proccess</div>
+      <div class="project-links">
+        <a href="ember.html" class="link-btn primary">View Project</a>
+        <a href="figures.html" class="link-btn">Figures &amp; Diagrams</a>
+        <a href="notes.html" class="link-btn">Dev Notes</a>
+      </div>
     </div>
+  </div>
 
-    <!-- Old Videos -->
-    <div class="media-box">
-      <iframe src="https://drive.google.com/file/d/1PJSxJ5yNiIyf0MlfR8eHKq8ZkgczPElG/preview" allow="autoplay" allowfullscreen></iframe>
-      <div class="caption">Safe Flame Classification V1</div>
-    </div>
-
-    <div class="media-box">
-      <iframe src="https://drive.google.com/file/d/10KQw_NTu-8KlJsr_gWH58jyrX92u0AU6/preview" allow="autoplay" allowfullscreen></iframe>
-      <div class="caption">Thermal Grid Detection</div>
-    </div>
+  <div class="project-placeholder">
+    <div class="placeholder-dot"></div>
+    <p class="placeholder-text">More coming soon.</p>
   </div>
 </section>
 
-<div style="text-align:center; margin-top:20px;">
-  <button class="btn" onclick="window.location.href='notes.html'">View Rolling Notes</button>
-  <button class="btn" style="margin-left:10px;" onclick="window.location.href='figures.html'">View Figures</button>
-</div>
+<hr class="divider" />
 
-<div class="progress-wrapper" style="max-width:850px;margin:30px auto 80px;padding:0 20px;">
-  <div class="progress-bar" style="position:relative;height:12px;background:#cce3ff;border-radius:8px;overflow:hidden;">
-    <div class="progress-bar-fill" style="height:100%;width:25%;background:#0071e3;border-radius:8px;transition:width 0.5s ease;"></div>
-  </div>
-  <div class="progress-stages" style="display:flex;justify-content:space-between;margin-top:16px;font-size:0.9rem;color:#444;">
-    <span>Proof of Concept</span>
-    <span class="active" style="color:#0071e3;font-weight:600;">Parts Ordered</span>
-    <span>Prototype v1</span>
-    <span>Prototype vₓ</span>
-    <span>Testing & Refinement → Product v1</span>
-  </div>
-</div>
+<!-- ── Personal ── -->
+<section id="personal">
+  <p class="section-label">Personal</p>
+  <p>
+    I'm a junior at Purdue studying Artificial Intelligence, focused on how intelligent systems
+    solve problems that exist in the physical world — not just in benchmarks. Most of my work
+    sits at the intersection of embedded hardware and machine learning: building things that
+    perceive and respond to their environment.
+  </p>
+  <p>
+    Outside of school, I spend a lot of time in the field. I'm interested in botany, foraging,
+    and natural history around the Midwest — learning to read a landscape through the plants
+    that grow there. It's a different kind of pattern recognition.
+  </p>
+</section>
 
-<main>
-  <section>
-    <h2>Problem</h2>
-    <p>Most smoke alarms only respond once smoke fills the air, often too late. Ember detects ignition right away, giving people more time to act and stay safe.</p>
-  </section>
+<hr class="divider" />
 
-  <section>
-    <h2>Solution</h2>
-    <p>Ember uses paired sensors and onboard processing to recognize flames instantly, even in bright or changing light. It can tell the difference between a real fire and safe light sources like candles or stovetops.</p>
-  </section>
-
-  <section>
-    <h2>Technology</h2>
-    <p>Ember utilizes wake-interrupt logic to continuously monitor ultraviolet activity, activating only when distinct flame signatures appear, ensuring quick response with minimal power use. When a potential ignition is detected, it “wakes” to analyze and confirm before triggering an alert — saving energy while staying responsive.</p>
-  </section>
-
-  <section>
-    <h2>Value Proposition</h2>
-    <p>Ember enables earlier detection, saving lives and property with superior reliability.</p>
-  </section>
-
-  <section>
-    <h2>Market</h2>
-    <p>Home fires affect hundreds of thousands of families every year. Ember brings a modern, practical approach to a problem that hasn’t evolved in decades.</p>
-  </section>
-
-  <section>
-    <h2>Team</h2>
-    <p>Gabriel Turner — Founder<br>Studying Artificial Intelligence at Purdue University.</p>
-  </section>
-
-  <section class="cta" style="background:#f8f9fa;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);padding:50px 28px;text-align:center;margin-bottom:100px;">
-    <h2>Join Mailing List</h2>
-    <form action="https://formspree.io/f/xanlynro" method="POST">
-      <input type="email" name="email" placeholder="Your email" required style="width:100%;max-width:400px;padding:12px 16px;border-radius:8px;border:1px solid #ccc;font-size:1rem;outline:none;">
-      <button type="submit" class="btn">Join</button>
-    </form>
-
-<h2 style="margin-top:40px;">Contact</h2>
-<form action="https://formspree.io/f/xzzkbzlj" method="POST" style="display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:20px;">
-  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;width:100%;max-width:650px;">
-    <input type="email" name="email" placeholder="Your email" required
-      style="flex:1 1 40%;min-width:250px;padding:12px 16px;border-radius:8px;border:1px solid #ccc;font-size:1rem;outline:none;">
-    <textarea name="message" placeholder="Your message" required
-      style="flex:1 1 55%;min-width:250px;padding:12px 16px;border-radius:8px;border:1px solid #ccc;font-size:1rem;min-height:100px;resize:vertical;"></textarea>
-  </div>
-  <button type="submit" class="btn">Send</button>
-</form>
-
-  </section>
-</main>
+<!-- ── Contact ── -->
+<section id="contact">
+  <p class="section-label">Contact</p>
+  <ul class="contact-list">
+    <li class="contact-item">
+      <span class="contact-label">Email</span>
+      <a href="mailto:gabejeffturner@gmail.com">gabejeffturner@gmail.com</a>
+    </li>
+  </ul>
+</section>
 
 <footer>
-  <p>© 2025 Cedaris Technologies LLC — “Ember” is a descriptive working name; no trademark claim is asserted.</p>
+  &copy; 2025 Gabe Turner
 </footer>
 
 <script>
-  // Fade-in animation
-  const sections = document.querySelectorAll('section');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.2 });
-  sections.forEach(section => observer.observe(section));
-
-  // Simple image carousel rotation
-  const imgs = document.querySelectorAll('.carousel img');
+  const imgs = document.querySelectorAll('.project-carousel img');
   let idx = 0;
   setInterval(() => {
     imgs[idx].classList.remove('active');
     idx = (idx + 1) % imgs.length;
     imgs[idx].classList.add('active');
-  }, 2500);
+  }, 3200);
 </script>
+
 </body>
 </html>

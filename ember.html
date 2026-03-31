@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ember — Cedaris Technologies LLC</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0a0a0a;
+      --muted: #666;
+      --blue: #0071e3;
+      --blue-light: #cce3ff;
+      --radius: 16px;
+      --shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    header { padding: 35px 20px 10px; text-align: center; background: #ffffff; }
+    header h1 { font-size: clamp(2.3rem, 5vw, 3.2rem); font-weight: 700; letter-spacing: -0.02em; color: #000; margin-bottom: 6px; }
+    header p.tagline { color: var(--muted); font-size: 1.05rem; margin-top: 2px; margin-bottom: 8px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    header p.legal-note { margin-top: 4px; font-size: 0.7rem; color: #999; }
+
+    section { max-width: 950px; margin: 70px auto; padding: 0 24px; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    section.visible { opacity: 1; transform: translateY(0); }
+
+    h2 { font-size: 1.8rem; font-weight: 600; margin-bottom: 12px; color: #000; }
+    p { font-size: 1.05rem; color: #222; margin-bottom: 18px; line-height: 1.8; }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .media-box {
+      aspect-ratio: 16 / 9;
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    iframe, img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 0;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff;
+      font-size: 0.95rem;
+      padding: 8px 0;
+      backdrop-filter: blur(4px);
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .carousel img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .carousel img.active { opacity: 1; }
+
+    @media (max-width: 768px) {
+      .video-grid { grid-template-columns: 1fr; }
+    }
+
+    .btn {
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 38px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+      margin-top: 10px;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #333;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      background: #f8f8f8;
+      color: #777;
+      border-top: 1px solid #eee;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <h1>Ember</h1>
+  <p class="tagline">A smarter, faster way to detect fire before it spreads.</p>
+  <p class="legal-note">“Ember” is a working name used descriptively; no trademark claim is asserted.</p>
+</header>
+
+<section id="demo-video">
+  <h2>Demo Media</h2>
+  <p>Videos of me prototyping!</p>
+
+  <div class="video-grid">
+    <!-- New Drive Video -->
+    <div class="media-box">
+      <iframe src="https://drive.google.com/file/d/1Zh_6enGdujeA5vIs5necY5Fufe6411DX/preview" allow="autoplay" allowfullscreen></iframe>
+      <div class="caption">Safe Flame Classification V2</div>
+    </div>
+
+    <!-- Rotating Image Carousel -->
+    <div class="media-box">
+      <div class="carousel">
+        <img src="image1.png" class="active" alt="Flame Dataset 1">
+        <img src="image2.png" alt="Flame Dataset 2">
+        <img src="image3.png" alt="Flame Dataset 3">
+        <img src="image4.png" alt="Flame Dataset 4">
+        <img src="image5.png" alt="Flame Dataset 4">
+        <img src="image6.png" alt="Flame Dataset 4">
+
+      </div>
+      <div class="caption">Training Proccess</div>
+    </div>
+
+    <!-- Old Videos -->
+    <div class="media-box">
+      <iframe src="https://drive.google.com/file/d/1PJSxJ5yNiIyf0MlfR8eHKq8ZkgczPElG/preview" allow="autoplay" allowfullscreen></iframe>
+      <div class="caption">Safe Flame Classification V1</div>
+    </div>
+
+    <div class="media-box">
+      <iframe src="https://drive.google.com/file/d/10KQw_NTu-8KlJsr_gWH58jyrX92u0AU6/preview" allow="autoplay" allowfullscreen></iframe>
+      <div class="caption">Thermal Grid Detection</div>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center; margin-top:20px;">
+  <button class="btn" onclick="window.location.href='notes.html'">View Rolling Notes</button>
+  <button class="btn" style="margin-left:10px;" onclick="window.location.href='figures.html'">View Figures</button>
+</div>
+
+<div class="progress-wrapper" style="max-width:850px;margin:30px auto 80px;padding:0 20px;">
+  <div class="progress-bar" style="position:relative;height:12px;background:#cce3ff;border-radius:8px;overflow:hidden;">
+    <div class="progress-bar-fill" style="height:100%;width:25%;background:#0071e3;border-radius:8px;transition:width 0.5s ease;"></div>
+  </div>
+  <div class="progress-stages" style="display:flex;justify-content:space-between;margin-top:16px;font-size:0.9rem;color:#444;">
+    <span>Proof of Concept</span>
+    <span class="active" style="color:#0071e3;font-weight:600;">Parts Ordered</span>
+    <span>Prototype v1</span>
+    <span>Prototype vₓ</span>
+    <span>Testing & Refinement → Product v1</span>
+  </div>
+</div>
+
+<main>
+  <section>
+    <h2>Problem</h2>
+    <p>Most smoke alarms only respond once smoke fills the air, often too late. Ember detects ignition right away, giving people more time to act and stay safe.</p>
+  </section>
+
+  <section>
+    <h2>Solution</h2>
+    <p>Ember uses paired sensors and onboard processing to recognize flames instantly, even in bright or changing light. It can tell the difference between a real fire and safe light sources like candles or stovetops.</p>
+  </section>
+
+  <section>
+    <h2>Technology</h2>
+    <p>Ember utilizes wake-interrupt logic to continuously monitor ultraviolet activity, activating only when distinct flame signatures appear, ensuring quick response with minimal power use. When a potential ignition is detected, it “wakes” to analyze and confirm before triggering an alert — saving energy while staying responsive.</p>
+  </section>
+
+  <section>
+    <h2>Value Proposition</h2>
+    <p>Ember enables earlier detection, saving lives and property with superior reliability.</p>
+  </section>
+
+  <section>
+    <h2>Market</h2>
+    <p>Home fires affect hundreds of thousands of families every year. Ember brings a modern, practical approach to a problem that hasn’t evolved in decades.</p>
+  </section>
+
+  <section>
+    <h2>Team</h2>
+    <p>Gabriel Turner — Founder<br>Studying Artificial Intelligence at Purdue University.</p>
+  </section>
+
+  <section class="cta" style="background:#f8f9fa;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);padding:50px 28px;text-align:center;margin-bottom:100px;">
+    <h2>Join Mailing List</h2>
+    <form action="https://formspree.io/f/xanlynro" method="POST">
+      <input type="email" name="email" placeholder="Your email" required style="width:100%;max-width:400px;padding:12px 16px;border-radius:8px;border:1px solid #ccc;font-size:1rem;outline:none;">
+      <button type="submit" class="btn">Join</button>
+    </form>
+
+<h2 style="margin-top:40px;">Contact</h2>
+<form action="https://formspree.io/f/xzzkbzlj" method="POST" style="display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:20px;">
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;width:100%;max-width:650px;">
+    <input type="email" name="email" placeholder="Your email" required
+      style="flex:1 1 40%;min-width:250px;padding:12px 16px;border-radius:8px;border:1px solid #ccc;font-size:1rem;outline:none;">
+    <textarea name="message" placeholder="Your message" required
+      style="flex:1 1 55%;min-width:250px;padding:12px 16px;border-radius:8px;border:1px solid #ccc;font-size:1rem;min-height:100px;resize:vertical;"></textarea>
+  </div>
+  <button type="submit" class="btn">Send</button>
+</form>
+
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Cedaris Technologies LLC — “Ember” is a descriptive working name; no trademark claim is asserted.</p>
+</footer>
+
+<script>
+  // Fade-in animation
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.2 });
+  sections.forEach(section => observer.observe(section));
+
+  // Simple image carousel rotation
+  const imgs = document.querySelectorAll('.carousel img');
+  let idx = 0;
+  setInterval(() => {
+    imgs[idx].classList.remove('active');
+    idx = (idx + 1) % imgs.length;
+    imgs[idx].classList.add('active');
+  }, 2500);
+</script>
+</body>
+</html>
