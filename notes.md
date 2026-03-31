@@ -1,3 +1,7 @@
+## November 13, 2025 pt2
+
+* The Pi os corrupted somehow! Yay, have to reflash... not a big deal there's nothing important on the pi but still annoying... 
+
 ## November 13, 2025
 
 * Still trying to get the model to work decent on the pi
@@ -11,7 +15,7 @@
 
 * Still working on optimizing the model for RPi
 * Works great on my laptop through webcam, not so much on the pi... talking sub 2fps...
-* Playing around with different model formats and lite versions video compression etc... 
+* Playing around with different model formats and lite versions video compression etc...
 
 ## November 11, 2025
 
