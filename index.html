@@ -27,12 +27,15 @@
 
     body {
       font-family: var(--serif);
-      background: var(--bg);
+      background-color: #fafaf7;
       color: var(--ink);
       font-size: 16px;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      transition: background-color 1.1s ease;
     }
+
+    body.outdoor { background-color: #f0e9db; }
 
     /* Grid background */
     body::before {
@@ -45,7 +48,16 @@
       background-size: 24px 24px;
       z-index: -1;
       opacity: 0.55;
+      transition: opacity 1.1s ease;
     }
+
+    body.outdoor::before { opacity: 0.8; }
+
+    /* Nav and dividers warm with the page */
+    nav { transition: background-color 1.1s ease, border-color 1.1s ease; }
+    body.outdoor nav { background-color: #f0e9db; border-bottom-color: #b8b2a4; }
+    hr.divider { transition: border-color 1.1s ease; }
+    body.outdoor hr.divider { border-color: #b8b2a4; }
 
     /* ── Nav ── */
     nav {
@@ -624,78 +636,80 @@
     <p class="htc-cert"><a href="HTC_cert.pdf" target="_blank" rel="noopener">View completion certificate &rarr;</a></p>
   </div>
 
+  <p class="section-label" style="margin-top:52px;">Field Notes</p>
+
   <div class="personal-gallery">
     <div class="gallery-item">
-      <img src="FRM/IMG_3514.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_3514.jpg" data-lightbox alt="Sierra summit panorama" />
+      <div class="gallery-caption">Summit panorama, Sierra Nevada</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_0027.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_0027.jpg" data-lightbox alt="Brachiopod fossils" />
+      <div class="gallery-caption">Brachiopods</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_0044.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_0044.jpg" data-lightbox alt="Fossil collection" />
+      <div class="gallery-caption">Crinoid stems, brachiopods, sea glass</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_1826.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_1826.jpg" data-lightbox alt="Historical rock inscription 1869" />
+      <div class="gallery-caption">Rock inscription, 1869</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_2736.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_2736.jpg" data-lightbox alt="Petrified wood" />
+      <div class="gallery-caption">Petrified wood</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_2928.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_2928.jpg" data-lightbox alt="Obsidian arrowhead" />
+      <div class="gallery-caption">Obsidian point</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_2947.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_2947.jpg" data-lightbox alt="Old mine entrance" />
+      <div class="gallery-caption">Mine entrance, Sierra Nevada</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_3028.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_3028.jpg" data-lightbox alt="Canyon overlook with topo map" />
+      <div class="gallery-caption">Canyon overlook</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_3110.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_3110.jpg" data-lightbox alt="Mine tunnel" />
+      <div class="gallery-caption">Mine tunnel, looking in</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_3117.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_3117.jpg" data-lightbox alt="Mine interior, stained walls" />
+      <div class="gallery-caption">Mine interior, mineral staining</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_3273.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_3273.jpg" data-lightbox alt="Chert knife or point" />
+      <div class="gallery-caption">Worked chert point</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_3299.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_3299.jpg" data-lightbox alt="Blue and gold mineral vein in mine" />
+      <div class="gallery-caption">Mineral vein, mine wall</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_3303.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_3303.jpg" data-lightbox alt="Descending mine shaft on wooden ladder" />
+      <div class="gallery-caption">Descending a shaft</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_3420.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_3420.jpg" data-lightbox alt="Galena ore specimen" />
+      <div class="gallery-caption">Galena</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_3587.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_3587.jpg" data-lightbox alt="Large obsidian chunk" />
+      <div class="gallery-caption">Obsidian</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_4108.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_4108.jpg" data-lightbox alt="Cliff edge overlook" />
+      <div class="gallery-caption">Cliff edge overlook</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_7896.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_7896.jpg" data-lightbox alt="Rock with mineral vein, Midwest" />
+      <div class="gallery-caption">Mineral vein, Indiana</div>
     </div>
     <div class="gallery-item">
-      <img src="FRM/IMG_7898.jpg" data-lightbox alt="" />
-      <div class="gallery-caption">caption</div>
+      <img src="FRM/IMG_7898.jpg" data-lightbox alt="Small bryozoan or coral fossil" />
+      <div class="gallery-caption">Bryozoan fossil</div>
     </div>
   </div>
 </section>
@@ -730,6 +744,12 @@
     idx = (idx + 1) % imgs.length;
     imgs[idx].classList.add('active');
   }, 3200);
+
+  // Outdoor theme on scroll into Personal
+  const personalSection = document.getElementById('personal');
+  new IntersectionObserver(entries => {
+    document.body.classList.toggle('outdoor', entries[0].isIntersecting);
+  }, { threshold: 0.08 }).observe(personalSection);
 
   // Lightbox
   const lb = document.getElementById('lightbox');
