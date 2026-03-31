@@ -438,6 +438,27 @@
     }
 
     .gallery-item:hover .gallery-caption { opacity: 1; }
+    .gallery-item { cursor: zoom-in; }
+
+    /* ── Lightbox ── */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(15, 14, 12, 0.93);
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 92vw;
+      max-height: 92vh;
+      object-fit: contain;
+      display: block;
+      cursor: default;
+    }
 
     @media (max-width: 720px) {
       .personal-gallery { columns: 2; }
@@ -564,81 +585,6 @@
     and the CS stuff feel related rather than separate.
   </p>
 
-  <div class="personal-gallery">
-    <div class="gallery-item">
-      <img src="FRM/IMG_3514.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_0027.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_0044.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_1826.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_2736.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_2928.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_2947.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_3028.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_3110.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_3117.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_3273.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_3299.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_3303.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_3420.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_3587.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_4108.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_7896.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-    <div class="gallery-item">
-      <img src="FRM/IMG_7898.jpg" alt="" />
-      <div class="gallery-caption">caption</div>
-    </div>
-  </div>
-
   <div class="htc-block">
     <p class="htc-label">California, Summer 2025</p>
     <h3 class="htc-title">Heritage Trout Challenge</h3>
@@ -651,26 +597,107 @@
       and country I wouldn't have found any other way.
     </p>
     <div class="htc-grid">
-      <a href="Golden_Kern_Turner_2025-07-27.jpg" target="_blank" rel="noopener">
-        <img src="Golden_Kern_Turner_2025-07-27.jpg" alt="California Golden Trout — Kern drainage" />
-      </a>
-      <a href="Lahontan_Meiss_Turner_2025-07-22.jpg" target="_blank" rel="noopener">
-        <img src="Lahontan_Meiss_Turner_2025-07-22.jpg" alt="Lahontan Cutthroat Trout — Meiss" />
-      </a>
-      <a href="Goose_Lassen_Turner_2025-08-10.jpg" target="_blank" rel="noopener">
-        <img src="Goose_Lassen_Turner_2025-08-10.jpg" alt="Goose Lake Redband — Lassen" />
-      </a>
-      <a href="Warner_Dismal_Turner_2025-08-10.jpg" target="_blank" rel="noopener">
-        <img src="Warner_Dismal_Turner_2025-08-10.jpg" alt="Warner Valley trout — Dismal" />
-      </a>
-      <a href="McCloud_Trout_Turner_2025-08-11.jpg" target="_blank" rel="noopener">
-        <img src="McCloud_Trout_Turner_2025-08-11.jpg" alt="McCloud River Redband Trout" />
-      </a>
-      <a href="Rainbow_Silver_Turner_2025-08-12.jpg" target="_blank" rel="noopener">
-        <img src="Rainbow_Silver_Turner_2025-08-12.jpg" alt="Rainbow Trout — Silver" />
-      </a>
+      <div class="gallery-item" style="border-radius:2px;">
+        <img src="Golden_Kern_Turner_2025-07-27.jpg" data-lightbox alt="California Golden Trout" />
+        <div class="gallery-caption">California Golden Trout — Kern drainage</div>
+      </div>
+      <div class="gallery-item" style="border-radius:2px;">
+        <img src="Lahontan_Meiss_Turner_2025-07-22.jpg" data-lightbox alt="Lahontan Cutthroat Trout" />
+        <div class="gallery-caption">Lahontan Cutthroat — Meiss country</div>
+      </div>
+      <div class="gallery-item" style="border-radius:2px;">
+        <img src="Goose_Lassen_Turner_2025-08-10.jpg" data-lightbox alt="Goose Lake Redband" />
+        <div class="gallery-caption">Goose Lake Redband — Lassen</div>
+      </div>
+      <div class="gallery-item" style="border-radius:2px;">
+        <img src="Warner_Dismal_Turner_2025-08-10.jpg" data-lightbox alt="Warner Valley trout" />
+        <div class="gallery-caption">Warner Valley — Dismal Creek</div>
+      </div>
+      <div class="gallery-item" style="border-radius:2px;">
+        <img src="McCloud_Trout_Turner_2025-08-11.jpg" data-lightbox alt="McCloud River Redband" />
+        <div class="gallery-caption">McCloud River Redband</div>
+      </div>
+      <div class="gallery-item" style="border-radius:2px;">
+        <img src="Rainbow_Silver_Turner_2025-08-12.jpg" data-lightbox alt="Rainbow Trout" />
+        <div class="gallery-caption">Rainbow Trout — Silver Lake</div>
+      </div>
     </div>
     <p class="htc-cert"><a href="HTC_cert.pdf" target="_blank" rel="noopener">View completion certificate &rarr;</a></p>
+  </div>
+
+  <div class="personal-gallery">
+    <div class="gallery-item">
+      <img src="FRM/IMG_3514.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_0027.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_0044.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_1826.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_2736.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_2928.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_2947.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_3028.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_3110.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_3117.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_3273.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_3299.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_3303.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_3420.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_3587.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_4108.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_7896.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRM/IMG_7898.jpg" data-lightbox alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
   </div>
 </section>
 
