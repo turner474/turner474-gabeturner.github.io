@@ -717,7 +717,12 @@
   &copy; 2025 Gabe Turner
 </footer>
 
+<div id="lightbox">
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
 <script>
+  // Carousel
   const imgs = document.querySelectorAll('.project-carousel img');
   let idx = 0;
   setInterval(() => {
@@ -725,6 +730,20 @@
     idx = (idx + 1) % imgs.length;
     imgs[idx].classList.add('active');
   }, 3200);
+
+  // Lightbox
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('[data-lightbox]').forEach(img => {
+    img.addEventListener('click', () => {
+      lbImg.src = img.src;
+      lb.classList.add('open');
+    });
+  });
+  lb.addEventListener('click', () => lb.classList.remove('open'));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') lb.classList.remove('open');
+  });
 </script>
 
 </body>
