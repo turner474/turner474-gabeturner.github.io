@@ -403,6 +403,46 @@
       color: var(--muted);
     }
 
+    /* ── Personal Gallery ── */
+    .personal-gallery {
+      margin-top: 40px;
+      columns: 3;
+      column-gap: 7px;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 7px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      display: block;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.68);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.3px;
+      padding: 7px 10px;
+      opacity: 0;
+      transition: opacity 0.18s ease;
+    }
+
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
+    @media (max-width: 720px) {
+      .personal-gallery { columns: 2; }
+    }
+
     /* ── Mobile ── */
     @media (max-width: 560px) {
       nav { padding: 0 18px; }
@@ -411,6 +451,7 @@
       #home { padding-top: 48px; }
       .project-body { padding: 20px 20px 24px; }
       .htc-grid { grid-template-columns: repeat(2, 1fr); }
+      .personal-gallery { columns: 1; }
     }
   </style>
 </head>
@@ -517,16 +558,90 @@
 <section id="personal">
   <p class="section-label">Personal</p>
   <p>
-    I'm a junior at Purdue studying Artificial Intelligence, focused on how intelligent systems
-    solve problems that exist in the physical world, not just in benchmarks. Most of my work
-    sits at the intersection of embedded hardware and machine learning, building things that
-    perceive and respond to their environment.
+    Junior at Purdue studying AI. Outside of school I spend most of my time doing field botany,
+    foraging, fossil hunting, and general natural history in the Midwest. I'm interested in how
+    intelligent systems interact with the physical world, which is part of why the outdoors stuff
+    and the CS stuff feel related rather than separate.
   </p>
-  <p>
-    Outside of school, I spend a lot of time in the field. I'm interested in botany, foraging,
-    and natural history around the Midwest. Learning to read a landscape through the plants that
-    grow there is its own kind of pattern recognition.
-  </p>
+
+  <div class="personal-gallery">
+    <div class="gallery-item">
+      <img src="FRm/IMG_3514.jpg" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_2607.jpeg" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_0027.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_0044.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_1826.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_2736.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_2928.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_2947.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_3028.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_3110.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_3117.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_3273.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_3299.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_3303.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_3420.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_3587.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_4108.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_7896.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+    <div class="gallery-item">
+      <img src="FRm/IMG_7898.HEIC" alt="" />
+      <div class="gallery-caption">caption</div>
+    </div>
+  </div>
 
   <div class="htc-block">
     <p class="htc-label">California, Summer 2025</p>
