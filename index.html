@@ -288,6 +288,80 @@
       color: #bbb;
     }
 
+    /* ── HTC Photo Grid ── */
+    .htc-block {
+      margin-top: 48px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .htc-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .htc-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .htc-desc {
+      font-size: 0.96rem;
+      color: #444;
+      line-height: 1.75;
+      max-width: 560px;
+      margin-bottom: 28px;
+    }
+
+    .htc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .htc-grid a {
+      display: block;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: 4px;
+      background: #eee;
+    }
+
+    .htc-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.2s;
+    }
+
+    .htc-grid a:hover img { opacity: 0.88; }
+
+    .htc-cert {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .htc-cert a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.15s;
+    }
+
+    .htc-cert a:hover { border-bottom-color: var(--text); }
+
+    @media (max-width: 480px) {
+      .htc-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     /* ── Mobile ── */
     @media (max-width: 560px) {
       nav { padding: 0 18px; }
@@ -379,6 +453,40 @@
     and natural history around the Midwest — learning to read a landscape through the plants
     that grow there. It's a different kind of pattern recognition.
   </p>
+
+  <div class="htc-block">
+    <p class="htc-label">California, Summer 2025</p>
+    <h3 class="htc-title">Heritage Trout Challenge</h3>
+    <p class="htc-desc">
+      California's Heritage Trout Challenge, run by the Department of Fish and Wildlife, asks
+      anglers to catch six of the state's native trout species — each in its historic watershed,
+      from the high Sierra to the remote north. It's a lifetime pursuit for most. I finished it
+      in the summer of 2025, working through the Golden Trout Wilderness, Lassen, the Meiss
+      country, and the McCloud and Warner drainages. Six species, a lot of miles, and country
+      I wouldn't have found any other way.
+    </p>
+    <div class="htc-grid">
+      <a href="Golden_Kern_Turner_2025-07-27.jpg" target="_blank" rel="noopener">
+        <img src="Golden_Kern_Turner_2025-07-27.jpg" alt="California Golden Trout — Kern drainage" />
+      </a>
+      <a href="Lahontan_Meiss_Turner_2025-07-22.jpg" target="_blank" rel="noopener">
+        <img src="Lahontan_Meiss_Turner_2025-07-22.jpg" alt="Lahontan Cutthroat Trout — Meiss" />
+      </a>
+      <a href="Goose_Lassen_Turner_2025-08-10.jpg" target="_blank" rel="noopener">
+        <img src="Goose_Lassen_Turner_2025-08-10.jpg" alt="Goose Lake Redband — Lassen" />
+      </a>
+      <a href="Warner_Dismal_Turner_2025-08-10.jpg" target="_blank" rel="noopener">
+        <img src="Warner_Dismal_Turner_2025-08-10.jpg" alt="Warner Valley trout — Dismal" />
+      </a>
+      <a href="McCloud_Trout_Turner_2025-08-11.jpg" target="_blank" rel="noopener">
+        <img src="McCloud_Trout_Turner_2025-08-11.jpg" alt="McCloud River Redband Trout" />
+      </a>
+      <a href="Rainbow_Silver_Turner_2025-08-12.jpg" target="_blank" rel="noopener">
+        <img src="Rainbow_Silver_Turner_2025-08-12.jpg" alt="Rainbow Trout — Silver" />
+      </a>
+    </div>
+    <p class="htc-cert"><a href="HTC_cert.pdf" target="_blank" rel="noopener">View completion certificate →</a></p>
+  </div>
 </section>
 
 <hr class="divider" />
