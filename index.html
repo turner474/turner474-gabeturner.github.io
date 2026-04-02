@@ -476,6 +476,74 @@
       .personal-gallery { columns: 2; }
     }
 
+    /* ── SkullNet visual sections ── */
+    .sn-section-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    .sn-grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+      margin-bottom: 8px;
+    }
+
+    .sn-grid-2x2 img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid var(--faint);
+      border-radius: 2px;
+    }
+
+    .sn-caption {
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      color: var(--muted);
+      letter-spacing: 0.3px;
+      line-height: 1.5;
+    }
+
+    .sn-grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .sn-grid-2col img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid var(--faint);
+      border-radius: 2px;
+    }
+
+    .sn-gen-block img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid var(--faint);
+      border-radius: 2px;
+      margin-bottom: 7px;
+    }
+
+    .sn-gen-label {
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      color: var(--muted);
+      letter-spacing: 0.3px;
+      line-height: 1.5;
+    }
+
+    .sn-correct  { color: #4a7c59; }
+    .sn-incorrect { color: #8b3a3a; }
+
     /* ── Mobile ── */
     @media (max-width: 560px) {
       nav { padding: 0 18px; }
@@ -542,6 +610,58 @@
         <a href="ember.html" class="link-btn primary">View Project</a>
         <a href="figures.html" class="link-btn">Figures &amp; Diagrams</a>
         <a href="notes.html" class="link-btn">Dev Notes</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-body">
+      <p class="project-meta">2026 · Machine Learning</p>
+      <h2 class="project-title">SkullNet</h2>
+      <p class="project-desc">Trained EfficientNetB0 via transfer learning on depth map renders of 26 mammal skulls sourced from MorphoSource. Each 3D mesh (PLY/STL/OBJ) was rendered from 4 standardized angles using orthographic projection, encoding cranial geometry as grayscale depth maps rather than texture or color. A 3-class locomotion classifier (aquatic, arboreal, terrestrial) was trained on 104 images with 80/20 train/test split. Training accuracy reached 72% — well above the 33% random baseline. Generalization was tested on species absent from the training set, with correct predictions on walrus (Odobenus rosmarus, aquatic) and bonobo (Pan paniscus, arboreal). Applied speculatively to extinct taxa including Triceratops horridus.</p>
+
+      <p class="sn-section-label">Depth map examples</p>
+      <div class="sn-grid-2x2">
+        <img src="aquatic_lutra_lutra_angle0.png" alt="Lutra lutra — aquatic, angle 0" />
+        <img src="aquatic_zalophus_californicus_angle2.png" alt="Zalophus californicus — aquatic, angle 2" />
+        <img src="arboreal_varecia_variegata_angle3.png" alt="Varecia variegata — arboreal, angle 3" />
+        <img src="terrestrial_lynx_rufus_angle0.png" alt="Lynx rufus — terrestrial, angle 0" />
+      </div>
+      <p class="sn-caption">Orthographic depth map renders — 4 angles per skull, geometry encoded as grayscale</p>
+
+      <p class="sn-section-label">Training results</p>
+      <div class="sn-grid-2col">
+        <img src="confusion_matrix.png" alt="Confusion matrix" />
+        <img src="training_curve.png" alt="Training curve" />
+      </div>
+
+      <p class="sn-section-label">Generalization tests</p>
+      <div class="sn-grid-2x2">
+        <div class="sn-gen-block">
+          <img src="Screenshot_2026-04-02_112157.png" alt="Walrus — Odobenus rosmarus, prediction" />
+          <p class="sn-gen-label"><em>Odobenus rosmarus</em> · <span class="sn-correct">aquatic ✓</span></p>
+        </div>
+        <div class="sn-gen-block">
+          <img src="Screenshot_2026-04-02_113834.png" alt="Bonobo — Pan paniscus, prediction" />
+          <p class="sn-gen-label"><em>Pan paniscus</em> · <span class="sn-correct">arboreal ✓</span></p>
+        </div>
+        <div class="sn-gen-block">
+          <img src="Screenshot_2026-04-02_113946.png" alt="Leopard — Panthera pardus, prediction" />
+          <p class="sn-gen-label"><em>Panthera pardus</em> · <span class="sn-incorrect">terrestrial ✗ predicted aquatic</span></p>
+        </div>
+        <div class="sn-gen-block">
+          <img src="Screenshot_2026-04-02_115852.png" alt="Cow — Bos taurus, prediction" />
+          <p class="sn-gen-label"><em>Bos taurus</em> · <span class="sn-incorrect">terrestrial ✗ predicted aquatic</span></p>
+        </div>
+      </div>
+
+      <div class="project-tags" style="margin-top:28px;">
+        <span class="tag">Computer Vision</span>
+        <span class="tag">Transfer Learning</span>
+        <span class="tag">EfficientNetB0</span>
+        <span class="tag">MorphoSource</span>
+        <span class="tag">Depth Maps</span>
+        <span class="tag">Paleontology</span>
       </div>
     </div>
   </div>
