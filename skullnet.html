@@ -128,6 +128,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 5px;
       margin-bottom: 10px;
+      max-width: 420px;
     }
 
     .depth-grid img {
@@ -177,7 +178,12 @@
       border: 1px solid var(--faint);
       border-radius: 3px;
       background: var(--paper);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+    }
+
+    .gen-block img.prob-chart {
+      margin-top: 0;
+      background: var(--bg);
     }
 
     .gen-label {
@@ -186,6 +192,7 @@
       color: var(--muted);
       letter-spacing: 0.3px;
       line-height: 1.6;
+      margin-top: 6px;
     }
 
     .correct   { color: #4a7c59; }
@@ -281,19 +288,23 @@
     <p class="section-label">Generalization Tests</p>
     <div class="gen-grid">
       <div class="gen-block">
-        <img src="skulls%20showcase/Screenshot%202026-04-02%20112157.png" alt="Walrus — Odobenus rosmarus, prediction" />
+        <img src="skulls%20showcase/Screenshot%202026-04-02%20112157.png" alt="Walrus — Odobenus rosmarus" />
+        <img src="skulls%20showcase/preview%20(2).webp" alt="Walrus class probabilities" class="prob-chart" />
         <p class="gen-label"><em>Odobenus rosmarus</em><br><span class="correct">aquatic ✓</span></p>
       </div>
       <div class="gen-block">
-        <img src="skulls%20showcase/Screenshot%202026-04-02%20113834.png" alt="Bonobo — Pan paniscus, prediction" />
+        <img src="skulls%20showcase/Screenshot%202026-04-02%20113834.png" alt="Bonobo — Pan paniscus" />
+        <img src="skulls%20showcase/preview%20(3).webp" alt="Bonobo class probabilities" class="prob-chart" />
         <p class="gen-label"><em>Pan paniscus</em><br><span class="correct">arboreal ✓</span></p>
       </div>
       <div class="gen-block">
-        <img src="skulls%20showcase/Screenshot%202026-04-02%20113946.png" alt="Leopard — Panthera pardus, prediction" />
+        <img src="skulls%20showcase/Screenshot%202026-04-02%20113946.png" alt="Leopard — Panthera pardus" />
+        <img src="skulls%20showcase/preview%20(4).webp" alt="Leopard class probabilities" class="prob-chart" />
         <p class="gen-label"><em>Panthera pardus</em><br><span class="incorrect">terrestrial ✗ predicted aquatic</span></p>
       </div>
       <div class="gen-block">
-        <img src="skulls%20showcase/Screenshot%202026-04-02%20115852.png" alt="Cow — Bos taurus, prediction" />
+        <img src="skulls%20showcase/Screenshot%202026-04-02%20115852.png" alt="Cow — Bos taurus" />
+        <img src="skulls%20showcase/preview%20(5).webp" alt="Cow class probabilities" class="prob-chart" />
         <p class="gen-label"><em>Bos taurus</em><br><span class="incorrect">terrestrial ✗ predicted aquatic</span></p>
       </div>
     </div>
