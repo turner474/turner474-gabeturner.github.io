@@ -153,15 +153,25 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
+      align-items: stretch;
     }
 
-    .results-grid img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .results-grid .img-box {
       border: 1px solid var(--faint);
       border-radius: 3px;
       background: var(--paper);
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .results-grid .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     /* Generalization 2x2 */
@@ -278,8 +288,8 @@
   <div class="media-section">
     <p class="section-label">Training Results</p>
     <div class="results-grid">
-      <img src="skulls%20showcase/confusion_matrix.png" alt="Confusion matrix" />
-      <img src="skulls%20showcase/training_curve.png" alt="Training curve" />
+      <div class="img-box"><img src="skulls%20showcase/confusion_matrix.png" alt="Confusion matrix" /></div>
+      <div class="img-box"><img src="skulls%20showcase/training_curve.png" alt="Training curve" /></div>
     </div>
   </div>
 
@@ -298,7 +308,7 @@
         <p class="gen-label"><em>Pan paniscus</em><br><span class="correct">arboreal ✓</span></p>
       </div>
       <div class="gen-block">
-        <img src="Screenshot%202026-04-02%20125802.png" alt="Mouse — Mus musculus" />
+        <img src="Screenshot%202026-04-02%20130322.png" alt="Mouse — Mus musculus" />
         <img src="download%20(1).png" alt="Mus musculus class probabilities" class="prob-chart" />
         <p class="gen-label"><em>Mus musculus</em><br><span class="correct">terrestrial ✓</span></p>
       </div>
