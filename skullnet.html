@@ -122,22 +122,30 @@
     /* ── Media sections ── */
     .media-section { margin-bottom: 56px; }
 
-    /* Depth map 2x2 */
+    /* Depth map strip */
     .depth-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
       gap: 5px;
       margin-bottom: 10px;
-      max-width: 420px;
     }
 
-    .depth-grid img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .depth-grid .img-box {
+      height: 160px;
+      background: var(--ink);
       border: 1px solid var(--faint);
       border-radius: 3px;
-      background: var(--ink);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .depth-grid .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .grid-caption {
@@ -244,7 +252,7 @@
 
     @media (max-width: 600px) {
       .page { padding: 72px 18px 80px; }
-      .depth-grid,
+      .depth-grid { grid-template-columns: repeat(2, 1fr); }
       .results-grid,
       .gen-grid { grid-template-columns: 1fr; }
     }
@@ -276,10 +284,10 @@
   <div class="media-section">
     <p class="section-label">Depth Map Examples</p>
     <div class="depth-grid">
-      <img src="skulls%20showcase/aquatic_lutra_lutra_angle0.png" alt="Lutra lutra — aquatic, angle 0" />
-      <img src="skulls%20showcase/aquatic_zalophus_californicus_angle2.png" alt="Zalophus californicus — aquatic, angle 2" />
-      <img src="skulls%20showcase/arboreal_varecia_variegata_angle3.png" alt="Varecia variegata — arboreal, angle 3" />
-      <img src="skulls%20showcase/terrestrial_lynx_rufus_angle0.png" alt="Lynx rufus — terrestrial, angle 0" />
+      <div class="img-box"><img src="skulls%20showcase/aquatic_lutra_lutra_angle0.png" alt="Lutra lutra — aquatic, angle 0" /></div>
+      <div class="img-box"><img src="skulls%20showcase/aquatic_zalophus_californicus_angle2.png" alt="Zalophus californicus — aquatic, angle 2" /></div>
+      <div class="img-box"><img src="skulls%20showcase/arboreal_varecia_variegata_angle3.png" alt="Varecia variegata — arboreal, angle 3" /></div>
+      <div class="img-box"><img src="skulls%20showcase/terrestrial_lynx_rufus_angle0.png" alt="Lynx rufus — terrestrial, angle 0" /></div>
     </div>
     <p class="grid-caption">Orthographic depth map renders — 4 angles per skull, geometry encoded as grayscale</p>
   </div>
@@ -342,6 +350,7 @@
   </div>
 
   <footer>
+    <p style="margin-bottom:10px;">3D skull data sourced from MorphoSource, an open-access repository for digital specimen data hosted by Duke University. Full specimen citations available upon request.</p>
     &copy; 2026 Gabe Turner
   </footer>
 
