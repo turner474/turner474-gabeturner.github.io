@@ -548,6 +548,45 @@
 
   <div class="project-card">
     <div class="project-carousel">
+      <img src="keyguard-placeholder.svg" class="active" alt="KeyGuard — placeholder" />
+    </div>
+    <div class="project-body">
+      <p class="project-meta">2026 · Catapult Hackathon (ML@Purdue) — Won Best Automation, solo</p>
+      <h2 class="project-title">KeyGuard</h2>
+      <p class="project-desc">
+        Passwords protect the moment you log in. KeyGuard protects everything after.
+        Built solo in 36 hours at Catapult 2026, hosted by ML@Purdue, KeyGuard is a
+        continuous keystroke dynamics authentication system that runs entirely on-device
+        — no cloud, no biometric data leaving the machine. It captures 26 features per
+        active typing burst: dwell time, inter-key flight time, pause rate, backspace
+        rate, burst WPM, and digraph timing across the 20 most common English letter
+        pairs. Every 40 keystrokes, a new window is scored against the enrolled
+        baseline using an ensemble of Isolation Forest, One-Class SVM, and z-score
+        anomaly detection. Two consecutive anomalous windows locks the session. The
+        model adapts over time via exponential moving average, updating only on
+        verified windows so an intruder can never slowly train it to accept them.
+        Tested against a real second user: 20/20 intruder windows flagged, ~10% false
+        positive rate on the enrolled user, with a PCA centroid separation of 3.62
+        units between the two typing profiles. Won Best Automation.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Keystroke Dynamics</span>
+        <span class="tag">Isolation Forest</span>
+        <span class="tag">One-Class SVM</span>
+        <span class="tag">scikit-learn</span>
+        <span class="tag">Anomaly Detection</span>
+        <span class="tag">Biometrics</span>
+        <span class="tag">Privacy</span>
+      </div>
+      <div class="project-links">
+        <a href="https://devpost.com/software/keyguard" class="link-btn primary">View on Devpost</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-carousel">
       <img src="skulls%20showcase/Screenshot%202026-04-02%20113834.png" class="active" alt="SkullNet — bonobo skull" />
       <img src="skulls%20showcase/aquatic_lutra_lutra_angle0.png" alt="SkullNet — depth map render" />
       <img src="skulls%20showcase/aquatic_zalophus_californicus_angle2.png" alt="SkullNet — depth map render" />
