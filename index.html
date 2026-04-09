@@ -549,25 +549,19 @@
   <div class="project-card">
     <div class="project-carousel">
       <img src="keyguard-placeholder.svg" class="active" alt="KeyGuard — placeholder" />
+      <div style="position:absolute;top:22px;right:-34px;background:#b8860b;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:1.5px;text-transform:uppercase;padding:6px 48px;transform:rotate(45deg);z-index:10;white-space:nowrap;pointer-events:none;">Best Automation</div>
     </div>
     <div class="project-body">
       <p class="project-meta">2026 · Catapult Hackathon (ML@Purdue) — Won Best Automation, solo</p>
       <h2 class="project-title">KeyGuard</h2>
       <p class="project-desc">
         Passwords protect the moment you log in. KeyGuard protects everything after.
-        Built solo in 36 hours at Catapult 2026, hosted by ML@Purdue, KeyGuard is a
-        continuous keystroke dynamics authentication system that runs entirely on-device
-        — no cloud, no biometric data leaving the machine. It captures 26 features per
-        active typing burst: dwell time, inter-key flight time, pause rate, backspace
-        rate, burst WPM, and digraph timing across the 20 most common English letter
-        pairs. Every 40 keystrokes, a new window is scored against the enrolled
-        baseline using an ensemble of Isolation Forest, One-Class SVM, and z-score
-        anomaly detection. Two consecutive anomalous windows locks the session. The
-        model adapts over time via exponential moving average, updating only on
-        verified windows so an intruder can never slowly train it to accept them.
-        Tested against a real second user: 20/20 intruder windows flagged, ~10% false
-        positive rate on the enrolled user, with a PCA centroid separation of 3.62
-        units between the two typing profiles. Won Best Automation.
+        Continuous keystroke dynamics authentication running entirely on-device — no cloud, no biometric
+        data leaving the machine. 26 features per 40-keystroke window (dwell time, flight time, digraph
+        timing across 20 common letter pairs) scored against an enrolled baseline via an ensemble of
+        Isolation Forest, One-Class SVM, and z-score detection. Two consecutive anomalous windows locks
+        the session. Tested against a real second user: 20/20 intruder windows flagged, ~10% false
+        positive rate, PCA centroid separation of 3.62 units.
       </p>
       <div class="project-tags">
         <span class="tag">Python</span>
@@ -580,7 +574,8 @@
         <span class="tag">Privacy</span>
       </div>
       <div class="project-links">
-        <a href="https://devpost.com/software/keyguard" class="link-btn primary">View on Devpost</a>
+        <a href="keyguard.html" class="link-btn primary">View Project</a>
+        <a href="https://devpost.com/software/keyguard" class="link-btn" target="_blank" rel="noopener">View on Devpost</a>
       </div>
     </div>
   </div>
